@@ -1,0 +1,16 @@
+stages:
+  training:
+    cmd: python src/US_ElectricityPrice/pipelines/training_pipeline.py
+    deps:
+      - src/US_ElectricityPrice/pipelines/training_pipeline.py
+      - src/US_ElectricityPrice/components/data_ingestion.py
+      - src/US_ElectricityPrice/components/data_transformation.py
+      - src/US_ElectricityPrice/components/model_trainer.py
+      - src/US_ElectricityPrice/components/model_evaluation.py
+
+    outs:
+      - artifacts/raw.csv
+      - artifacts/test.csv
+      - artifacts/train.csv
+      - artifacts/preprocessor.pkl
+      - artifacts/model.pkl
